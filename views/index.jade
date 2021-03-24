@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  script(src="/socket.io/socket.io.js")
+  script.
+    let user = "dynamic-1"
+    var socket = io(`//localhost:3000/${user}`);
+    socket.on('hi', function (data) {
+      console.log(data);
+    });
+
